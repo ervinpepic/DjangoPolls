@@ -1,0 +1,31 @@
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Glasajte ponovo!</a>
+<br>
+<br>
+<style> 
+a{
+	width: 450px;
+    padding: 8px;
+    margin: 100px auto;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dedede #bababa #aaa #bababa;
+    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+    border-radius: 10px;    
+    background-color: #f6f6f6;
+    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 550px;
+   
+}
+</style>
+<a href="{% url 'polls:index'  %}">Povratak na pitanja!</a>
